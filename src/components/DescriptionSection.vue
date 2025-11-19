@@ -28,7 +28,7 @@
         
         <!-- Main Description -->
         <p class="text-gray-200 text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-relaxed font-light tracking-wide mb-4 sm:mb-6 px-2">
-          A daring collage of thousands of primary sources covering the riots from the shooting of Jacob Blake through the murder trial of Kyle Rittenhouse.
+          A bold collage of thousands of primary sources covering the riots from the shooting of Jacob Blake through the murder trial of Kyle Rittenhouse.
         </p>
         <p class="text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-light tracking-wide mb-8">
         </p>
