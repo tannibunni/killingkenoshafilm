@@ -24,6 +24,9 @@
         <Bio />
       </div>
     </main>
+    
+    <!-- Footer -->
+    <Footer />
   </div>
 </template>
 
@@ -34,6 +37,7 @@ import Hero from './components/Hero.vue'
 import DescriptionSection from './components/DescriptionSection.vue'
 import VideoPlayerSection from './components/VideoPlayerSection.vue'
 import Bio from './components/Bio.vue'
+import Footer from './components/Footer.vue'
 import { documentaryConfig } from './config'
 
 const playerStore = usePlayerStore()
