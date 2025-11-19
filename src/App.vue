@@ -1,35 +1,39 @@
 <template>
   <div id="app" class="bg-black min-h-screen">
-    <!-- Hero Banner Section -->
-    <HeroBanner 
-      :title="documentary.title"
-      :description="documentary.description"
-      :poster-image="documentary.posterImage"
+    <!-- Hero Section -->
+    <Hero 
       :background-image="documentary.heroBackground"
       @play="handlePlay"
-      @share="handleShare"
     />
     
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12 max-w-6xl">
+    <main>
+      <!-- Description Section - Full width background -->
+      <DescriptionSection />
+      
       <!-- Video Player Section -->
-      <VideoPlayerSection 
-        :is-unlocked="playerStore.isUnlocked"
-        :video-url="playerStore.videoUrl"
-      />
+      <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-6xl">
+        <VideoPlayerSection 
+          :is-unlocked="playerStore.isUnlocked"
+          :video-url="playerStore.videoUrl"
+        />
+      </div>
+      
+      <!-- Bio Section - Independent Section -->
+      <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-6xl">
+        <Bio />
+      </div>
     </main>
-    
-    <!-- Watermark -->
-    <Watermark />
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import { usePlayerStore } from './stores/player'
-import HeroBanner from './components/HeroBanner.vue'
+import Hero from './components/Hero.vue'
+import DescriptionSection from './components/DescriptionSection.vue'
 import VideoPlayerSection from './components/VideoPlayerSection.vue'
-import Watermark from './components/Watermark.vue'
+import Bio from './components/Bio.vue'
 import { documentaryConfig } from './config'
 
 const playerStore = usePlayerStore()
@@ -43,8 +47,11 @@ const handlePlay = () => {
 }
 
 const handleShare = () => {
-  // 分享功能
-  console.log('Share clicked')
+  // 滚动到分享部分
+  const shareSection = document.getElementById('share-section')
+  if (shareSection) {
+    shareSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
 }
 
 onMounted(() => {

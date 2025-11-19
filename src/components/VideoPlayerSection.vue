@@ -1,5 +1,5 @@
 <template>
-  <section class="video-player-section bg-black/90 rounded-xl shadow-2xl overflow-hidden mb-8 border border-gray-900">
+  <section id="watch" class="video-player-section bg-black/90 rounded-lg sm:rounded-xl shadow-2xl overflow-hidden mb-6 sm:mb-8 border border-gray-900">
     <!-- Video Container -->
     <div class="aspect-video bg-black relative">
       <!-- Password Protection Overlay -->
@@ -19,10 +19,23 @@
       />
     </div>
     
-    <!-- Episode Selection -->
-    <div class="hidden">
-      <EpisodeSelector />
+    <!-- Scroll Indicator -->
+    <div class="px-4 sm:px-6 py-4 sm:py-6 text-center border-t border-gray-800">
+      <div class="flex flex-col items-center gap-3">
+        <button
+          @click="scrollToShare"
+          class="text-gray-400 hover:text-white transition-colors duration-300"
+        >
+          <!-- <i class="ri-arrow-down-s-line text-3xl sm:text-4xl"></i> -->
+        </button>
+        
+      </div>
     </div>
+    
+    <!-- Episode Selection -->
+    <!-- <div class="hidden">
+      <EpisodeSelector />
+    </div> -->
     
     <!-- Share Section -->
     <ShareButtons />
@@ -52,6 +65,13 @@ const playerStore = usePlayerStore()
 const handleUnlock = () => {
   emit('unlock')
   playerStore.unlock()
+}
+
+const scrollToShare = () => {
+  const shareSection = document.getElementById('share-section')
+  if (shareSection) {
+    shareSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
 }
 </script>
 

@@ -2,24 +2,26 @@ import { ref } from 'vue'
 import { appConfig } from '../config'
 
 export function useShare() {
-  const shareUrl = ref(window.location.href)
+  // 使用固定的网站链接
+  const shareUrl = ref('https://killingkenosha.com/')
+  
+  // 分享文本配置
+  const shareTexts = {
+    twitter: 'A new exciting documentary by @0rf https://www.givesendgo.com/KillingKenoshaFilm',
+    default: 'A new exciting documentary by Matt Orfalea https://www.givesendgo.com/KillingKenoshaFilm'
+  }
   
   const shareUrls = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl.value)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl.value)}&text=${encodeURIComponent(document.title)}`,
-    instagram: `https://www.instagram.com/`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl.value)}`,
-    reddit: `https://reddit.com/submit?url=${encodeURIComponent(shareUrl.value)}&title=${encodeURIComponent(document.title)}`,
-    email: `mailto:?subject=${encodeURIComponent(document.title)}&body=${encodeURIComponent(shareUrl.value)}`
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl.value)}&quote=${encodeURIComponent(shareTexts.default)}`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTexts.twitter)}`,
+    instagram: `https://www.instagram.com/`
   }
   
   const shareToPlatform = (platform) => {
     const url = shareUrls[platform]
     if (!url) return
     
-    if (platform === 'email') {
-      window.location.href = url
-    } else if (platform === 'instagram') {
+    if (platform === 'instagram') {
       // Instagram不支持直接分享URL，打开应用
       alert('Please share manually on Instagram')
     } else {

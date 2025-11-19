@@ -1,7 +1,18 @@
 <template>
-  <div class="px-6 pb-6 border-t border-gray-800">
-    <div class="flex items-center justify-between pt-6">
-      <h4 class="text-lg font-semibold text-gray-300">Share this documentary</h4>
+
+    
+  <div id="share-section" class="px-4 sm:px-6 md:pt-40 pb-4 sm:pb-6">
+    <div class="flex flex-col items-center">
+      <!-- Subtle Down Arrow -->
+      <button
+        @click="scrollToBio"
+        class="mb-4 sm:mb-6 text-gray-500/50 hover:text-gray-400/70 transition-colors duration-300 cursor-pointer animate-bounce-subtle"
+        title="Continue browsing"
+      >
+        <i class="ri-arrow-down-s-line text-2xl sm:text-3xl"></i>
+      </button>
+      
+      <h4 class="text-base sm:text-lg font-semibold text-gray-300 mb-3 sm:mb-4">Share this documentary</h4>
       <div class="flex items-center gap-3">
         <button
           v-for="platform in platforms"
@@ -41,10 +52,7 @@ const copySuccessIcon = 'ri-check-line'
 const platforms = [
   { name: 'facebook', label: 'Facebook', icon: 'ri-facebook-fill', bgColor: 'bg-blue-600', hoverColor: 'hover:bg-blue-700' },
   { name: 'twitter', label: 'Twitter', icon: 'ri-twitter-x-fill', bgColor: 'bg-sky-500', hoverColor: 'hover:bg-sky-600' },
-  { name: 'instagram', label: 'Instagram', icon: 'ri-instagram-fill', bgColor: 'bg-pink-500', hoverColor: 'hover:bg-pink-600' },
-  { name: 'linkedin', label: 'LinkedIn', icon: 'ri-linkedin-fill', bgColor: 'bg-blue-700', hoverColor: 'hover:bg-blue-800' },
-  { name: 'reddit', label: 'Reddit', icon: 'ri-reddit-fill', bgColor: 'bg-orange-600', hoverColor: 'hover:bg-orange-700' },
-  { name: 'email', label: 'Email', icon: 'ri-mail-fill', bgColor: 'bg-gray-600', hoverColor: 'hover:bg-gray-700' }
+  { name: 'instagram', label: 'Instagram', icon: 'ri-instagram-fill', bgColor: 'bg-pink-500', hoverColor: 'hover:bg-pink-600' }
 ]
 
 const shareToPlatform = (platform) => {
@@ -60,5 +68,28 @@ const copyLink = async () => {
     }, 2000)
   }
 }
+
+const scrollToBio = () => {
+  const bioSection = document.getElementById('bio-section')
+  if (bioSection) {
+    bioSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
 </script>
+
+<style scoped>
+/* Subtle bounce animation */
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+</style>
 

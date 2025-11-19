@@ -62,7 +62,7 @@ export const appConfig = {
     title: 'Killing Kenosha - Documentary',
     description: "The fiery story of the 2020 Kenosha riots",
     posterImage: '/poster.jpeg',
-    heroBackground: '/background.jpg'
+    heroBackground: '/background.JPG'
   },
   
   // 分享配置
