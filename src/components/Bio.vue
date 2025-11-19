@@ -26,20 +26,10 @@
               href="https://www.givesendgo.com/KillingKenoshaFilm"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 sm:gap-3 bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl whitespace-nowrap"
+              class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 sm:gap-3 bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl whitespace-nowrap"
             >
               <i class="ri-hand-coin-line text-xl sm:text-2xl"></i>
               <span>Givesendgo</span>
-            </a>
-            
-            <a
-              href="https://www.gofundme.com/f/killingkenoshadocumentary"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 sm:gap-3 bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl whitespace-nowrap"
-            >
-              <i class="ri-heart-line text-xl sm:text-2xl"></i>
-              <span>GoFundMe</span>
             </a>
             
             <!-- Contact Button -->
