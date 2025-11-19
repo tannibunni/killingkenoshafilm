@@ -1,15 +1,15 @@
 <template>
   <section id="bio-section" class="bg-black/90 rounded-lg sm:rounded-xl shadow-2xl border border-gray-800 overflow-hidden">
     <div class="px-4 sm:px-6 py-8 sm:py-10 md:py-12">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6">
-      <!-- Bio Image -->
-      <div class="flex-shrink-0">
-        <img 
-          src="/bio-matt orf.jpeg" 
-          alt="Matt Orfalea"
-          class="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 object-cover rounded-lg shadow-lg"
-        />
-      </div>
+          <div class="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6">
+            <!-- Bio Image -->
+            <div class="flex-shrink-0 w-full md:w-auto">
+              <img 
+                src="/bio-matt orf.jpeg" 
+                alt="Matt Orfalea"
+                class="w-full h-auto sm:w-full sm:h-auto md:w-64 md:h-64 object-cover rounded-lg shadow-lg"
+              />
+            </div>
       
       <!-- Bio Text -->
       <div class="flex-1 text-gray-300">

@@ -2,9 +2,10 @@
  * 应用配置
  */
 export const appConfig = {
-  // 密码配置
+  // 密码配置（后端验证）
   password: {
-    default: '123456'
+    // 密码验证 API 端点
+    verifyEndpoint: '/.netlify/functions/verify-password'
   },
   
   // 联系信息

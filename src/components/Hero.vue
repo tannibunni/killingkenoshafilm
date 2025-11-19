@@ -1,7 +1,7 @@
 <template>
   <section 
     id="hero" 
-    class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    class="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
   >
     <!-- Background Image -->
     <div 
@@ -15,25 +15,25 @@
 
     <!-- Content -->
     <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-0">
-      <!-- Main Title with smooth staggered animation -->
-      <div class="mb-4 sm:mb-6">
-        <h1 
-          :class="[
-            'text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight leading-tight transition-all duration-[1500ms] ease-out',
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          ]"
-        >
-          KILLING
-        </h1>
-        <h1 
-          :class="[
-            'text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-red-600 tracking-tight leading-tight transition-all duration-[1500ms] ease-out delay-300',
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          ]"
-        >
-          KENOSHA
-        </h1>
-      </div>
+            <!-- Main Title with smooth staggered animation -->
+            <div class="mb-4 sm:mb-6">
+              <h1 
+                :class="[
+                  'text-7xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight leading-tight transition-all duration-[1500ms] ease-out',
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                ]"
+              >
+                KILLING
+              </h1>
+              <h1 
+                :class="[
+                  'text-6xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-red-600 tracking-tight leading-tight transition-all duration-[1500ms] ease-out delay-300',
+                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                ]"
+              >
+                KENOSHA
+              </h1>
+            </div>
       
       <!-- Subtitle info -->
       <div 
@@ -60,37 +60,31 @@
         The definitive film on the Kenosha 2020 riots
       </p>
 
-      <!-- Action Buttons -->
-      <div 
-        :class="[
-          'flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-2xl mx-auto transition-all duration-[1200ms] ease-out delay-1200',
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-        ]"
-      >
-        <button
-          @click="scrollToWatch"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
-        >
-          <i class="ri-play-fill text-xl sm:text-2xl"></i>
-          <!-- <span class="sm:hidden">Watch Documentary</span> -->
-          <span class="hidden sm:inline">Watch Now</span>
-        </button>
-      </div>
+            <!-- Action Buttons -->
+            <div 
+              :class="[
+                'flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-2xl mx-auto transition-all duration-[1200ms] ease-out delay-1200',
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              ]"
+            >
+              <button
+                @click="scrollToWatch"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                <i class="ri-play-fill text-xl sm:text-2xl"></i>
+                <span>Watch Now</span>
+              </button>
+              
+              <button
+                @click="scrollToTrailer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 bg-transparent border-2 border-white text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                <i class="ri-play-circle-line text-xl sm:text-2xl"></i>
+                <span>Trailer</span>
+              </button>
+            </div>
 
-      <!-- Scroll indicator -->
-      <div 
-        :class="[
-          'mt-12 sm:mt-16 transition-all duration-[1200ms] ease-out delay-1500',
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
-        ]"
-      >
-        <!-- <button
-          @click="scrollToClips"
-          class="text-white/80 hover:text-white transition-colors duration-300 animate-bounce"
-        >
-          <i class="ri-arrow-down-s-line text-3xl sm:text-4xl"></i>
-        </button> -->
-      </div>
+     
     </div>
 
     <!-- Gradient Overlay at Bottom -->
@@ -134,6 +128,19 @@ const scrollToClips = () => {
   const clipsSection = document.getElementById('clips') || document.getElementById('share-section')
   if (clipsSection) {
     clipsSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+const scrollToTrailer = () => {
+  const trailerSection = document.getElementById('trailer')
+  if (trailerSection) {
+    const elementPosition = trailerSection.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - 100
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
   }
 }
 
