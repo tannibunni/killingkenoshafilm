@@ -13,6 +13,18 @@ export const appConfig = {
     subject: "Hi I'd like to watch your documentory"
   },
   
+  // EmailJS 配置
+  emailjs: {
+    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '',
+    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || ''
+  },
+  
+  // Google Sheets 配置
+  googleSheets: {
+    webAppUrl: import.meta.env.VITE_GOOGLE_SHEETS_WEB_APP_URL || ''
+  },
+  
   // 视频播放器配置
   video: {
     playerUrl: 'https://player.vdocipher.com/v2/',

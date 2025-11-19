@@ -73,9 +73,15 @@ npm run preview
      - Publish directory: `dist`
    - 点击 "Deploy site"
 
-3. **环境变量（如需要）**
+3. **环境变量（必需）**
    - Site settings → Environment variables
-   - 添加必要的环境变量
+   - 添加以下环境变量：
+     - `VITE_EMAILJS_PUBLIC_KEY` = `XUQPJ6BTfk34lIIR3`
+     - `VITE_EMAILJS_SERVICE_ID` = `service_spznhqh`
+     - `VITE_EMAILJS_TEMPLATE_ID` = `template_kkfmc0d`
+     - `VITE_GOOGLE_SHEETS_WEB_APP_URL` = `https://script.google.com/macros/s/AKfycbxrgfwixTrnp4BtmgLTCOtMnW8E6OI-dfBbdcVNaLXMBzqIaQkUOA_bZsJBuaru0h-U/exec`
+   - 点击 **Save** 保存
+   - **重要：** 保存后需要重新部署网站才能生效
 
 **配置文件：** `netlify.toml` 已创建，包含必要的配置。
 

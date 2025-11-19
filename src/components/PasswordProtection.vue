@@ -47,14 +47,14 @@
           
           <!-- Contact Link -->
           <div class="text-center mt-2 sm:mt-3">
-            <button
+          <button 
               @click="openContactForm"
               class="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-1 cursor-pointer"
-            >
+          >
               Don't have the code? contact the creator
               <span class="text-gray-500">>></span>
             </button>
-          </div>
+            </div>
         </div>
         
         <!-- Error Message -->

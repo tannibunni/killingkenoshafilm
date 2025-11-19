@@ -127,7 +127,7 @@
                   class="p-4 bg-green-900/50 border border-green-700 rounded-lg text-green-300 text-sm"
                 >
                   <i class="ri-check-line inline-block mr-2"></i>
-                  Message sent successfully! We'll get back to you soon.
+                  Message sent successfully! I'll get back to you soon.
                 </div>
               </Transition>
 
@@ -151,6 +151,8 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import emailjs from '@emailjs/browser'
+import { appConfig } from '../config'
 
 const props = defineProps({
   isOpen: {
@@ -190,15 +192,61 @@ const submitForm = async () => {
   showError.value = false
 
   try {
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Contact from ${form.value.name}`)
-    const body = encodeURIComponent(
-      `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`
-    )
-    const mailtoLink = `mailto:mattorftv@gmail.com?subject=${subject}&body=${body}`
+    const { emailjs: emailjsConfig, googleSheets, contact } = appConfig
     
-    // Open email client
-    window.location.href = mailtoLink
+    // Save to Google Sheets if configured
+    if (googleSheets.webAppUrl) {
+      try {
+        await fetch(googleSheets.webAppUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: form.value.name,
+            email: form.value.email,
+            message: form.value.message
+          })
+        })
+      } catch (sheetsError) {
+        console.warn('Google Sheets save failed:', sheetsError)
+        // Continue even if Sheets save fails
+      }
+    }
+    
+    // Check if EmailJS is configured
+    if (!emailjsConfig.publicKey || !emailjsConfig.serviceId || !emailjsConfig.templateId) {
+      // Fallback to mailto if EmailJS is not configured
+      const subject = encodeURIComponent(`Contact from ${form.value.name}`)
+      const body = encodeURIComponent(
+        `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`
+      )
+      const mailtoLink = `mailto:${contact.email}?subject=${subject}&body=${body}`
+      window.location.href = mailtoLink
+      showSuccess.value = true
+      form.value = { name: '', email: '', message: '' }
+      setTimeout(() => {
+        close()
+      }, 2000)
+      return
+    }
+
+    // Send email using EmailJS
+    const templateParams = {
+      from_name: form.value.name,
+      from_email: form.value.email,
+      message: form.value.message,
+      to_email: contact.email,
+      subject: `Contact from ${form.value.name} - Killing Kenosha Website`
+    }
+    
+    await emailjs.send(
+      emailjsConfig.serviceId,
+      emailjsConfig.templateId,
+      templateParams,
+      emailjsConfig.publicKey
+    )
     
     // Show success message
     showSuccess.value = true
@@ -211,6 +259,7 @@ const submitForm = async () => {
       close()
     }, 2000)
   } catch (error) {
+    console.error('Form submission error:', error)
     showError.value = true
     errorMessage.value = 'Failed to send message. Please try again or use the social links above.'
   } finally {

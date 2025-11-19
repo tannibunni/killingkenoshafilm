@@ -13,9 +13,9 @@
       
       <!-- Video Player Section -->
       <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-6xl">
-        <VideoPlayerSection 
-          :is-unlocked="playerStore.isUnlocked"
-          :video-url="playerStore.videoUrl"
+      <VideoPlayerSection 
+        :is-unlocked="playerStore.isUnlocked"
+        :video-url="playerStore.videoUrl"
         />
       </div>
       
