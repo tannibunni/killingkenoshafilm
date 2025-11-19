@@ -79,7 +79,7 @@ npm run preview
      - `VITE_EMAILJS_PUBLIC_KEY` = `XUQPJ6BTfk34lIIR3`
      - `VITE_EMAILJS_SERVICE_ID` = `service_spznhqh`
      - `VITE_EMAILJS_TEMPLATE_ID` = `template_kkfmc0d`
-     - `VITE_GOOGLE_SHEETS_WEB_APP_URL` = `https://script.google.com/macros/s/AKfycbxrgfwixTrnp4BtmgLTCOtMnW8E6OI-dfBbdcVNaLXMBzqIaQkUOA_bZsJBuaru0h-U/exec`
+     - `VITE_GOOGLE_SHEETS_WEB_APP_URL` = `https://script.google.com/macros/s/AKfycbzo4yqUZNRVeposxQSyBTb2GTXasWVV76dD0UyCBjhxupVRR1SDyUnrehwvBVVvqvcHqg/exec`
    - 点击 **Save** 保存
    - **重要：** 保存后需要重新部署网站才能生效
 

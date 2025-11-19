@@ -9,7 +9,7 @@
         ]"
       >
         <!-- YouTube Trailer Embed -->
-        <div class="pb-8 sm:pb-12 md:pb-16">
+        <div class="pb-8 sm:pb-12 md:pb-16 pt-4 sm:pt-0">
           <div class="aspect-video w-full max-w-4xl mx-auto rounded-lg sm:rounded-xl overflow-hidden shadow-2xl border border-gray-800">
             <iframe
               src="https://www.youtube.com/embed/bbYO4Z57VpM?si=zA_f23CCvYyOSf8w"
@@ -44,7 +44,9 @@ onMounted(() => {
 .trailer-section {
   min-height: auto;
   pointer-events: none;
-  margin-top: -120px;
+  margin-top: -80px;
+  position: relative;
+  z-index: 20;
 }
 
 .trailer-section > * {
@@ -53,19 +55,19 @@ onMounted(() => {
 
 @media (min-width: 640px) {
   .trailer-section {
-    margin-top: -140px;
+    margin-top: -100px;
   }
 }
 
 @media (min-width: 768px) {
   .trailer-section {
-    margin-top: -160px;
+    margin-top: -120px;
   }
 }
 
 @media (min-width: 1024px) {
   .trailer-section {
-    margin-top: 0px;
+    margin-top: -140px;
   }
 }
 </style>
