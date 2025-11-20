@@ -16,7 +16,9 @@
         <h4 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-2">Matt Orfalea</h4>
         <p class="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4">Director / Producer / Editor</p>
         <p class="text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
-          Matt Orfalea (aka Orf) is an investigative video creator who's captivated millions online. His new documentary, <strong class="text-white">Killing Kenosha</strong> is a five-year project that draws on thousands of primary sources, including explosive new interviews, and tons of never-before-seen footage. Your support is sincerely appreciated.
+         
+
+Matt Orfalea (aka Orf) is an investigative video creator whose new documentary, Killing Kenosha is a five-year project that draws on thousands of primary sources, including explosive new interviews, and tons of never-before-seen footage. Your support is sincerely appreciated.
         </p>
         
         <!-- Donation Buttons -->
