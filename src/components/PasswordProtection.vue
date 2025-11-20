@@ -31,12 +31,12 @@
           <i class="ri-lock-line text-lg sm:text-2xl text-gray-300"></i>
         </div>
         
-        <!-- Title -->
-        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 sm:mb-3 md:mb-4">Protected Content</h3>
+        Title
+        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 sm:mb-3 md:mb-4">Preview Full Film</h3>
         
         <!-- Description -->
         <p class="text-gray-300 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 md:mb-6">
-          Please enter the access password to watch the complete documentary
+          A full cut is available for promotion, media, and potential investor review. 
         </p>
     
         <!-- Password Input -->
@@ -68,7 +68,7 @@
               @click="openContactForm"
               class="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-1 cursor-pointer"
             >
-              Don't have the code? contact the creator
+            Request access here
               <span class="text-gray-500">>></span>
             </button>
           </div>
