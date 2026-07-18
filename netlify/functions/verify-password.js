@@ -2,6 +2,7 @@
  * Netlify Serverless Function - 密码验证
  *
  * 这个函数在后端验证密码，密码不会暴露在前端代码中
+ * 使用 ESM，因根目录 package.json 含 "type": "module"
  */
 
 const corsHeaders = {
@@ -14,7 +15,7 @@ const corsHeaders = {
 /** 始终有效的默认密码（不区分大小写） */
 const DEFAULT_PASSWORDS = ['FriendOfOrf']
 
-exports.handler = async (event) => {
+export async function handler(event) {
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers: corsHeaders, body: '' }
   }
@@ -28,7 +29,10 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { password } = JSON.parse(event.body || '{}')
+    const body = typeof event.body === 'string'
+      ? JSON.parse(event.body || '{}')
+      : (event.body || {})
+    const { password } = body
     const input = typeof password === 'string' ? password.trim().toLowerCase() : ''
 
     // 环境变量密码（可选）+ 默认 FriendOfOrf，任一匹配即可

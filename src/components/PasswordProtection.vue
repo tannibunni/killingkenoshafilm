@@ -252,16 +252,22 @@ const checkPassword = async () => {
 
     const data = await response.json()
 
-    if (data.success) {
-      error.value = ''
-      passwordInput.value = ''
-      showPasswordForm.value = false // 关闭移动端弹窗
-      playerStore.unlock()
-      emit('unlock')
-    } else {
+    if (!response.ok || !data.success) {
+      // 区分服务端故障与密码错误，避免 502 被误报成 Incorrect password
+      if (!response.ok && data.errorType) {
+        error.value = 'Password service is temporarily unavailable. Please try again.'
+        return
+      }
       error.value = 'Incorrect password, please try again'
       passwordInput.value = ''
+      return
     }
+
+    error.value = ''
+    passwordInput.value = ''
+    showPasswordForm.value = false
+    playerStore.unlock()
+    emit('unlock')
   } catch (err) {
     console.error('Password verification error:', err)
     error.value = 'Failed to verify password. Please try again.'
