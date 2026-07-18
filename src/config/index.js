@@ -29,8 +29,8 @@ export const appConfig = {
   // 视频播放器配置
   video: {
     playerUrl: 'https://player.vdocipher.com/v2/',
-    otp: '20160313versASE3232o4a13isj6G8ICpLvM4RIsB9F64SHJhjuDq7HtCEhdSYLs',
-    playbackInfo: 'eyJ2aWRlb0lkIjoiYzU0NWYwMjdkNzQxNjVkN2NmMTc2MGM1YzI4ZDkyNjEifQ==',
+    otp: '20160313versUSE3232sIUnTfvrQ1zdmYecn90ea6dN3PU2ngeVY1rxshUHMakD7',
+    playbackInfo: 'eyJ2aWRlb0lkIjoiMDYyMTUzMjg1N2QyNDY1NGJjZGNiYTE1ZDBlNjBiNjUifQ==',
     getVideoUrl(startTime = 0) {
       const baseUrl = `${this.playerUrl}?otp=${this.otp}&playbackInfo=${this.playbackInfo}`;
       return startTime > 0 ? `${baseUrl}&startTime=${startTime}` : baseUrl;

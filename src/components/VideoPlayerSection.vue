@@ -19,19 +19,7 @@
       />
     </div>
     
-    <!-- Scroll Indicator -->
-    <div class="px-4 sm:px-6 py-4 sm:py-6 text-center border-t border-gray-800">
-      <div class="flex flex-col items-center gap-3">
-        <button
-          @click="scrollToShare"
-          class="text-gray-400 hover:text-white transition-colors duration-300"
-        >
-          <!-- <i class="ri-arrow-down-s-line text-3xl sm:text-4xl"></i> -->
-        </button>
-        
-      </div>
-    </div>
-    
+   
     <!-- Episode Selection -->
     <!-- <div class="hidden">
       <EpisodeSelector />

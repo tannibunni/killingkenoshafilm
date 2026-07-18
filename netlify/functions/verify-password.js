@@ -21,8 +21,11 @@ exports.handler = async (event, context) => {
     // 在 Netlify Dashboard 中设置环境变量 PASSWORD
     const correctPassword = process.env.PASSWORD || 'FriendOfOrf'
 
-    // 验证密码
-    if (password === correctPassword) {
+    // 不区分大小写：FriendOfOrf / friendoforf 均可
+    if (
+      typeof password === 'string' &&
+      password.toLowerCase() === correctPassword.toLowerCase()
+    ) {
       return {
         statusCode: 200,
         headers: {
