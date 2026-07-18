@@ -41,13 +41,23 @@
     
         <!-- Password Input -->
         <div class="space-y-3 sm:space-y-4">
-          <input 
-            v-model="passwordInput"
-            type="password" 
-            placeholder="Enter password"
-            class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none text-center text-sm sm:text-base"
-            @keypress.enter="checkPassword"
-          />
+          <div class="relative">
+            <input 
+              v-model="passwordInput"
+              :type="showPassword ? 'text' : 'password'" 
+              placeholder="Enter password"
+              class="w-full px-3 sm:px-4 py-2 sm:py-3 pr-10 sm:pr-12 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none text-center text-sm sm:text-base"
+              @keypress.enter="checkPassword"
+            />
+            <button
+              type="button"
+              @click="showPassword = !showPassword"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+              :aria-label="showPassword ? 'Hide password' : 'Show password'"
+            >
+              <i :class="showPassword ? 'ri-eye-off-line' : 'ri-eye-line'" class="text-lg sm:text-xl"></i>
+            </button>
+          </div>
           
           <!-- Buttons -->
           <button 
@@ -131,13 +141,23 @@
           
               <!-- Password Input -->
               <div class="space-y-3">
-                <input 
-                  v-model="passwordInput"
-                  type="password" 
-                  placeholder="Enter password"
-                  class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none text-center text-sm"
-                  @keypress.enter="checkPassword"
-                />
+                <div class="relative">
+                  <input 
+                    v-model="passwordInput"
+                    :type="showPassword ? 'text' : 'password'" 
+                    placeholder="Enter password"
+                    class="w-full px-4 py-3 pr-12 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none text-center text-sm"
+                    @keypress.enter="checkPassword"
+                  />
+                  <button
+                    type="button"
+                    @click="showPassword = !showPassword"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                    :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                  >
+                    <i :class="showPassword ? 'ri-eye-off-line' : 'ri-eye-line'" class="text-xl"></i>
+                  </button>
+                </div>
                 
                 <!-- Buttons -->
                 <button 
@@ -189,6 +209,7 @@ const emit = defineEmits(['unlock'])
 const playerStore = usePlayerStore()
 
 const passwordInput = ref('')
+const showPassword = ref(false)
 const error = ref('')
 const isContactFormOpen = ref(false)
 const isVerifying = ref(false)

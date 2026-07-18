@@ -36,8 +36,9 @@ Message:
 This email was sent from the Killing Kenosha website contact form.
 ```
 
-4. 在 **To Email** 字段填入：`mattorftv@gmail.com`
-5. 保存模板并记录下 **Template ID**
+4. **To Email** 字段必须填：`{{to_email}}`（由网站代码传入，固定为 `mattorftv@gmail.com`）
+5. **Reply To** 字段建议填：`{{reply_to}}`（方便直接回复用户）
+6. 保存模板并记录下 **Template ID**
 
 ### 4. 获取 Public Key
 

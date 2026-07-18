@@ -253,12 +253,15 @@ const submitForm = async () => {
       return
     }
 
-    // Send email using EmailJS
+    // Send email using EmailJS — always to mattorftv@gmail.com
+    const recipientEmail = contact.email // mattorftv@gmail.com
     const templateParams = {
       from_name: form.value.name,
       from_email: form.value.email,
+      reply_to: form.value.email,
       message: form.value.message,
-      to_email: contact.email,
+      to_email: recipientEmail,
+      to_name: 'Matt Orf',
       subject: `Contact from ${form.value.name} - Killing Kenosha Website`
     }
     

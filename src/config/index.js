@@ -14,11 +14,11 @@ export const appConfig = {
     subject: "Hi I'd like to watch your documentory"
   },
   
-  // EmailJS 配置
+  // EmailJS 配置（收件人固定为 contact.email）
   emailjs: {
-    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '',
-    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
-    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || ''
+    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'XUQPJ6BTfk34lIIR3',
+    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_spznhqh',
+    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_kkfmc0d'
   },
   
   // Google Sheets 配置
