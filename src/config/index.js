@@ -11,6 +11,8 @@ export const appConfig = {
   // 联系信息
   contact: {
     email: 'lt14gs@gmail.com',
+    // 固定主题，便于 Gmail 按标题过滤/转发
+    emailSubject: '[Killing Kenosha] Website Contact Form',
     subject: "Hi I'd like to watch your documentory"
   },
   

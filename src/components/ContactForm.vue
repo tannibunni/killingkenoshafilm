@@ -236,7 +236,7 @@ const submitForm = async () => {
     // Check if EmailJS is configured
     if (!emailjsConfig.publicKey || !emailjsConfig.serviceId || !emailjsConfig.templateId) {
       // Fallback to mailto if EmailJS is not configured
-      const subject = encodeURIComponent(`Contact from ${form.value.name}`)
+      const subject = encodeURIComponent(contact.emailSubject)
       const body = encodeURIComponent(
         `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`
       )
@@ -254,15 +254,15 @@ const submitForm = async () => {
     }
 
     // Send email using EmailJS — always to lt14gs@gmail.com
-    const recipientEmail = contact.email // lt14gs@gmail.com
+    const recipientEmail = contact.email
     const templateParams = {
       from_name: form.value.name,
       from_email: form.value.email,
       reply_to: form.value.email,
       message: form.value.message,
       to_email: recipientEmail,
-      to_name: 'Matt Orf',
-      subject: `Contact from ${form.value.name} - Killing Kenosha Website`
+      to_name: 'Site Admin',
+      subject: contact.emailSubject
     }
     
     await emailjs.send(
