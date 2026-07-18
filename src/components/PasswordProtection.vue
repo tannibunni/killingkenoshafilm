@@ -246,7 +246,7 @@ const checkPassword = async () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        password: passwordInput.value
+        password: passwordInput.value.trim()
       })
     })
 

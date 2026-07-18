@@ -3,8 +3,8 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# SPA fallback — Netlify serves /.netlify/functions/* before this rule
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
