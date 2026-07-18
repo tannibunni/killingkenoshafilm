@@ -253,8 +253,8 @@ const submitForm = async () => {
       return
     }
 
-    // Send email using EmailJS — always to mattorftv@gmail.com
-    const recipientEmail = contact.email // mattorftv@gmail.com
+    // Send email using EmailJS — always to lt14gs@gmail.com
+    const recipientEmail = contact.email // lt14gs@gmail.com
     const templateParams = {
       from_name: form.value.name,
       from_email: form.value.email,

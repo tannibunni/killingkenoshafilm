@@ -10,7 +10,7 @@ export const appConfig = {
   
   // 联系信息
   contact: {
-    email: 'mattorftv@gmail.com',
+    email: 'lt14gs@gmail.com',
     subject: "Hi I'd like to watch your documentory"
   },
   

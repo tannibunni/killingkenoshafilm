@@ -1,6 +1,6 @@
 # EmailJS 配置指南
 
-ContactForm 组件现在支持通过 EmailJS 直接发送邮件到 `mattorftv@gmail.com`。
+ContactForm 组件现在支持通过 EmailJS 直接发送邮件到 `lt14gs@gmail.com`。
 
 ## 设置步骤
 
@@ -36,7 +36,7 @@ Message:
 This email was sent from the Killing Kenosha website contact form.
 ```
 
-4. **To Email** 字段必须填：`{{to_email}}`（由网站代码传入，固定为 `mattorftv@gmail.com`）
+4. **To Email** 字段必须填：`{{to_email}}`（由网站代码传入，固定为 `lt14gs@gmail.com`）
 5. **Reply To** 字段建议填：`{{reply_to}}`（方便直接回复用户）
 6. 保存模板并记录下 **Template ID**
 
@@ -83,7 +83,7 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
 配置完成后，测试联系表单：
 1. 填写表单
 2. 点击 "Send Message"
-3. 检查 `mattorftv@gmail.com` 收件箱
+3. 检查 `lt14gs@gmail.com` 收件箱
 
 ## 注意事项
 
